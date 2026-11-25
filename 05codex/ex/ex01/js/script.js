@@ -33,7 +33,7 @@ const converters = {
 function initializeTheme() {
   const root = document.documentElement;
   const button = document.querySelector("#theme");
-  const links = document.querySelectorAll(".service-nav a, .converter-card");
+  const links = document.querySelectorAll(".converter-card, .home-link");
   const storageKey = "unit-converter-theme";
   const pageTheme = new URLSearchParams(location.search).get("theme");
   let savedTheme;
