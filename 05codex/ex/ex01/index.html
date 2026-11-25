@@ -1,52 +1,37 @@
 <!doctype html>
-<html lang="ko" data-converter="length">
+<html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>길이 단위 변환</title>
+  <title>단위 변환기(Unit Converter)</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js" defer></script>
 </head>
 <body>
   <main class="converter">
-    <header class="hero">
+    <nav class="service-nav" aria-label="변환기 메뉴">
+      <a href="index.html" aria-current="page">메인</a>
+      <a href="length.html">길이 변환</a>
+      <a href="weight.html">무게 변환</a>
+    </nav>
+    <header class="hero home-hero">
       <button class="theme-button" id="theme" type="button" aria-pressed="false">
         <span class="theme-icon" aria-hidden="true">☾</span> 다크 모드
       </button>
-      <div class="icon-tile" aria-hidden="true"><span class="ruler"></span></div>
-      <h1>길이 단위 변환</h1>
-      <p>하나의 길이를 입력하면 여러 단위로 바로 변환됩니다.</p>
+      <h1>단위 변환기<span class="english-title">(Unit Converter)</span></h1>
     </header>
-
-    <section class="controls" aria-label="변환 입력">
-      <div class="field">
-        <label for="amount">길이</label>
-        <input id="amount" type="text" inputmode="decimal" maxlength="400" placeholder="예: 12.5" autocomplete="off" spellcheck="false" aria-describedby="input-error">
-      </div>
-      <div class="field">
-        <label for="unit">기준 단위</label>
-        <div class="select-wrap"><select id="unit"></select></div>
-      </div>
-      <button id="reset" class="reset-button" type="button">초기화</button>
-      <p id="input-error" class="input-error" role="status" hidden></p>
-    </section>
-
-    <section class="results" aria-labelledby="results-heading">
-      <div class="results-header">
-        <h2 id="results-heading">변환 결과</h2>
-        <span id="copy-status" class="copy-status" role="status"></span>
-      </div>
-      <ul id="result-list" class="result-list"></ul>
-    </section>
+    <div class="converter-cards">
+      <a class="converter-card" href="length.html">
+        <span class="icon-tile" aria-hidden="true"><span class="ruler"></span></span>
+        <h2>길이 변환</h2>
+        <p>미터, 인치, 마일 등 길이 단위를 변환합니다.</p>
+      </a>
+      <a class="converter-card" href="weight.html">
+        <span class="icon-tile" aria-hidden="true"><span class="weight-icon"></span></span>
+        <h2>무게 변환</h2>
+        <p>그램, 파운드, 근 등 무게 단위를 변환합니다.</p>
+      </a>
+    </div>
   </main>
-
-  <template id="result-template">
-    <li class="result-row">
-      <span class="unit-symbol"></span>
-      <span class="unit-name"></span>
-      <span class="result-value"></span>
-      <button class="copy-button" type="button" disabled><span class="copy-icon" aria-hidden="true"></span>복사</button>
-    </li>
-  </template>
 </body>
 </html>

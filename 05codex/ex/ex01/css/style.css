@@ -64,7 +64,8 @@ body {
   color: white;
   background: linear-gradient(145deg, #666, #333);
   box-shadow: 0 6px 14px #0004;
-}.ruler {
+}
+.ruler {
   width: 32px;
   height: 14px;
   border: 2px solid currentColor;
@@ -96,7 +97,7 @@ h1 { margin: 16px 0 6px; font-size: clamp(1.75rem, 5vw, 2.5rem); letter-spacing:
 button, input, select { font: inherit; color: inherit; }
 button { cursor: pointer; }
 button:disabled { cursor: default; color: var(--muted); background: var(--soft); }
-:where(button, input, select):focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+:where(a, button, input, select):focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 .theme-button, .reset-button, .copy-button {
   min-height: 44px;
   border: 1px solid var(--border);
@@ -184,7 +185,59 @@ h2 { margin: 0; font-size: 1.15rem; }
 .copy-button { display: inline-flex; align-items: center; gap: 6px; }
 .copy-icon { width: 10px; height: 12px; margin-left: 3px; border: 1px solid; border-radius: 2px; box-shadow: -3px -3px 0 -1px var(--surface), -3px -3px 0 0 currentColor; }
 
+.service-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.service-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 10px;
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: .875rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+.service-nav a[aria-current="page"], .service-nav a:hover {
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+.home-hero { padding-top: 44px; }
+.english-title {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 1rem;
+  letter-spacing: normal;
+}
+.converter-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.converter-card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--soft);
+  color: var(--text);
+  text-decoration: none;
+}
+.converter-card:hover { background: var(--accent-bg); }
+.converter-card p { margin: 0; color: var(--muted); line-height: 1.55; }
+
 @media (max-width: 540px) {
+  .converter-cards { grid-template-columns: 1fr; }
   .controls { grid-template-columns: minmax(0, 1fr) auto; padding: 12px; }
   .field:first-child { grid-column: 1 / -1; }
   .result-row { grid-template-columns: 34px minmax(0, 1fr) minmax(0, 1.8fr) auto; gap: 7px; padding-inline: 7px; }
