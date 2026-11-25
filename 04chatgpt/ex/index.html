@@ -1,0 +1,881 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#245c46">
+  <meta name="description" content="개발과 AI를 쉽고 재미있게 가르치는 강사 김인규의 개인 소개 페이지입니다. 관심 분야와 반려묘 바다를 소개합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="김인규 | 개발과 AI를 가르치는 강사">
+  <meta property="og:description" content="무엇을 하는지 알려드리는 강사, 김인규입니다.">
+  <title>김인규 | 개발과 AI를 가르치는 강사</title>
+
+  <style>
+    /* 기본 색상 */
+    :root {
+      --green: #245c46;
+      --deep: #143d2d;
+      --sage: #a8c7b0;
+      --mint: #eaf3ec;
+      --paper: #fafcf9;
+      --ink: #26332b;
+      --muted: #65746b;
+      --line: #d9e4db;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Pretendard, "Apple SD Gothic Neo",
+                   "Malgun Gothic", system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button { font: inherit; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid #519b77;
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 64px));
+      margin-inline: auto;
+    }
+
+    .skip {
+      position: absolute;
+      top: -90px;
+      left: 16px;
+      padding: 12px 18px;
+      background: var(--deep);
+      color: white;
+      z-index: 99;
+    }
+
+    .skip:focus { top: 12px; }
+
+    /* 상단 내비게이션 */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(250, 252, 249, .92);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -.05em;
+      color: var(--deep);
+    }
+
+    .brand span { color: #85aa90; }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav a {
+      font-size: 14px;
+      font-weight: 650;
+      color: #536459;
+      transition: color .2s;
+    }
+
+    .nav a:hover { color: var(--green); }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: white;
+      padding: 9px 12px;
+      color: var(--deep);
+      cursor: pointer;
+    }
+
+    /* 공통 스타일 */
+    .eyebrow {
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .23em;
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    .section {
+      padding: 112px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-top {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 45px;
+    }
+
+    .section h2 {
+      font-size: clamp(39px, 5vw, 68px);
+      line-height: 1.15;
+      letter-spacing: -.06em;
+      color: var(--deep);
+      margin: 12px 0 0;
+    }
+
+    .section-counter {
+      font-size: 13px;
+      color: #8a9d90;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    /* 메인 프로필 */
+    .hero {
+      padding: 91px 0 104px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: .94fr 1.06fr;
+      gap: clamp(50px, 7vw, 110px);
+      align-items: center;
+    }
+
+    .portrait {
+      position: relative;
+      min-height: 560px;
+      border-radius: 170px 170px 28px 28px;
+      background: linear-gradient(
+        153deg,
+        #dcebdd 0%,
+        #b4cdbb 50%,
+        #84a993 100%
+      );
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .portrait::before {
+      content: "";
+      position: absolute;
+      width: 390px;
+      height: 390px;
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 50%;
+      top: 50px;
+      left: -120px;
+    }
+
+    .portrait::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border: 1px solid rgba(255,255,255,.32);
+      border-radius: 50%;
+      bottom: -125px;
+      right: -90px;
+    }
+
+    /* 프로필 및 바다 사진 */
+    .portrait img,
+    .cat-visual img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+    }
+
+    .photo-fallback {
+      font-size: 110px;
+      color: var(--deep);
+      opacity: .6;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .cat-visual .photo-fallback {
+      font-size: 120px;
+    }
+
+    .has-photo .photo-fallback,
+    .has-photo .portrait-note,
+    .has-photo .placeholder {
+      display: none;
+    }
+
+    .portrait-note {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      padding: 9px 16px;
+      background: rgba(255,255,255,.83);
+      border-radius: 50px;
+      font-size: 12px;
+      color: var(--deep);
+      font-weight: 700;
+      letter-spacing: .04em;
+      z-index: 3;
+    }
+
+    .hero-copy { padding: 15px 0; }
+
+    .hero-copy h1 {
+      margin: 20px 0 12px;
+      font-size: clamp(75px, 9vw, 148px);
+      letter-spacing: -.095em;
+      line-height: 1.07;
+      font-weight: 800;
+      color: var(--deep);
+    }
+
+    .hero-copy h1 .dot {
+      color: #78a98a;
+    }
+
+    .hero-lead {
+      margin: 28px 0 12px;
+      font-size: clamp(23px, 2.6vw, 35px);
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: -.045em;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 18px;
+      margin: 0 0 38px;
+    }
+
+    /* 관심 분야 */
+    .hero-interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 30px;
+    }
+
+    .hero-interests li {
+      font-size: 14px;
+      font-weight: 650;
+      color: var(--green);
+      background: var(--mint);
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      padding: 6px 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 27px;
+      border-radius: 100px;
+      background: var(--green);
+      color: white;
+      font-size: 15px;
+      font-weight: 750;
+      transition: background .2s, transform .2s;
+    }
+
+    .btn:hover {
+      background: var(--deep);
+      transform: translateY(-2px);
+    }
+
+    .vertical-text {
+      writing-mode: vertical-rl;
+      position: absolute;
+      right: 20px;
+      top: 120px;
+      color: #9bb6a2;
+      font-size: 11px;
+      letter-spacing: .3em;
+      font-weight: 800;
+    }
+
+    /* 자기소개 */
+    .about-grid {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-text {
+      font-size: clamp(22px, 2.6vw, 33px);
+      line-height: 1.75;
+      font-weight: 550;
+      letter-spacing: -.04em;
+      margin: 0;
+    }
+
+    .about-text strong {
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .about-aside {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 245px;
+      border-left: 3px solid var(--sage);
+      padding-left: 18px;
+    }
+
+    /* 반려묘 바다 */
+    .cat-section {
+      background: var(--mint);
+      border-top: none;
+    }
+
+    .cat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 75px;
+      align-items: center;
+    }
+
+    .cat-visual {
+      height: 440px;
+      border-radius: 30px;
+      background: linear-gradient(
+        150deg, #c6dfcc, #93b89f
+      );
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cat-visual::before {
+      content: "";
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 50%;
+      left: -160px;
+      top: -120px;
+    }
+
+    .cat-visual .placeholder {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      background: #f8fff8d9;
+      color: var(--deep);
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      z-index: 3;
+    }
+
+    .cat-copy h2 {
+      margin: 14px 0 24px;
+    }
+
+    .cat-copy .cat-name {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--green);
+      margin: 0 0 15px;
+    }
+
+    .cat-copy .cat-desc {
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 650;
+      line-height: 1.55;
+      letter-spacing: -.05em;
+      max-width: 490px;
+      margin: 0;
+    }
+
+    /* 연락처 */
+    .contact {
+      text-align: center;
+      padding: 125px 0 138px;
+    }
+
+    .contact h2 {
+      font-size: clamp(42px, 6vw, 82px);
+      margin: 18px 0;
+      letter-spacing: -.07em;
+      line-height: 1.2;
+      color: var(--deep);
+    }
+
+    .contact .contact-sub {
+      color: var(--muted);
+      font-size: 18px;
+      margin: 0 0 35px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      padding: 16px 24px;
+      font-size: 15px;
+      font-weight: 700;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .contact-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .contact-link:hover {
+      border-color: var(--green);
+      transform: translateY(-2px);
+    }
+
+    /* 푸터 */
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-size: 13px;
+      color: #819086;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a:hover {
+      color: var(--green);
+    }
+
+    /* 태블릿 */
+    @media (max-width: 1000px) {
+      .hero-grid { gap: 45px; }
+      .portrait { min-height: 470px; }
+      .cat-grid { gap: 45px; }
+      .vertical-text { display: none; }
+    }
+
+    /* 모바일 */
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 36px, 560px);
+      }
+
+      .header-inner { height: 66px; }
+      .menu-toggle { display: block; }
+
+      .nav {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        padding: 18px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 16px 25px #153d2d10;
+        flex-direction: column;
+        gap: 0;
+        align-items: stretch;
+      }
+
+      .nav.open { display: flex; }
+      .nav a { padding: 12px 14px; font-size: 16px; }
+
+      .hero { padding: 38px 0 70px; }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .portrait {
+        width: min(100%, 470px);
+        min-height: 390px;
+        border-radius: 150px 150px 22px 22px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(78px, 18vw, 118px);
+        margin: 12px 0;
+      }
+
+      .hero-lead { margin-top: 22px; }
+      .hero-sub { font-size: 16px; }
+      .section { padding: 75px 0; }
+      .section-top { margin-bottom: 28px; }
+      .section h2 { font-size: 46px; }
+
+      .about-grid,
+      .cat-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .about-aside { max-width: none; }
+      .cat-visual { height: 340px; order: -1; }
+      .contact { padding: 86px 0 100px; }
+
+      .contact-links {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .contact-link {
+        justify-content: center;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 370px) {
+      .portrait { min-height: 330px; }
+    }
+
+    /* 애니메이션 최소화 설정 */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">본문으로 바로가기</a>
+
+  <!-- 상단 메뉴 -->
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="김인규 홈">
+        KIM IN KYU<span>.</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="메뉴 열기"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >☰</button>
+
+      <nav id="site-nav" class="nav" aria-label="주요 메뉴">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#bada">Bada</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 메인 프로필 -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+
+        <!-- 프로필 사진 -->
+        <!-- profile.jpg를 실제 사진 파일명으로 변경하세요. -->
+        <div class="portrait">
+          <span class="photo-fallback" aria-hidden="true">👤</span>
+
+          <img
+            src="images/profile.jpg"
+            alt="김인규 프로필 사진"
+            width="800"
+            height="1000"
+            onload="this.parentElement.classList.add('has-photo')"
+            onerror="this.hidden=true"
+          >
+
+          <span class="portrait-note">
+            PROFILE PHOTO · COMING SOON
+          </span>
+        </div>
+
+        <!-- 프로필 정보 -->
+        <div class="hero-copy">
+          <span class="eyebrow">Developer &amp; AI Instructor</span>
+
+          <h1 id="hero-title">
+            김인규<span class="dot">.</span>
+          </h1>
+
+          <p class="hero-lead">
+            무엇을 하는지<br>
+            알려드리는 강사
+          </p>
+
+          <p class="hero-sub">
+            개발과 AI를 쉽고 재미있게 가르칩니다.
+          </p>
+
+          <!-- 관심 분야 -->
+          <ul class="hero-interests" aria-label="관심 분야">
+            <li>인공지능</li>
+            <li>요리</li>
+            <li>여행</li>
+            <li>독서</li>
+          </ul>
+
+          <a class="btn" href="mailto:lecture@hagulu.com">
+            이메일로 연락하기
+          </a>
+        </div>
+      </div>
+
+      <span class="vertical-text" aria-hidden="true">
+        HELLO, NICE TO MEET YOU
+      </span>
+    </section>
+
+    <!-- 자기소개 -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+
+        <div class="section-top">
+          <div>
+            <span class="eyebrow">Get to know me</span>
+            <h2 id="about-title">
+              About Me<span style="color:#90b69b">.</span>
+            </h2>
+          </div>
+
+          <span class="section-counter">ABOUT</span>
+        </div>
+
+        <div class="about-grid">
+          <p class="about-aside">
+            복잡한 기술도 이해하기 쉽게,<br>
+            배움이 즐거워지도록.
+          </p>
+
+          <p class="about-text">
+            안녕하세요!<br>
+            저는 <strong>개발과 AI를 가르치는 강사</strong>입니다.
+            <br><br>
+            최대한 <strong>쉽고 재미있게</strong>,
+            그리고 무엇을 하는지 알려드리는 강사가 되고 싶어요!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 반려묘 바다 소개 -->
+    <section class="section cat-section" id="bada" aria-labelledby="bada-title">
+      <div class="container cat-grid">
+
+        <div class="cat-copy">
+          <span class="eyebrow">A little piece of my world</span>
+
+          <h2 id="bada-title">
+            Meet Bada<span style="color:#79a887">.</span>
+          </h2>
+
+          <p class="cat-name">우리 집 고양이, 바다</p>
+
+          <p class="cat-desc">
+            겁이 많지만<br>
+            호기심이 많은<br>
+            귀여운 고양이 🐾
+          </p>
+        </div>
+
+        <!-- 바다 사진 -->
+        <!-- bada.jpg를 실제 사진 파일명으로 변경하세요. -->
+        <div class="cat-visual">
+          <span class="photo-fallback" aria-hidden="true">🐈</span>
+
+          <img
+            src="images/1779984292036~2.jpg"
+            alt="반려묘 바다"
+            width="800"
+            height="700"
+            loading="lazy"
+            onload="this.parentElement.classList.add('has-photo')"
+            onerror="this.hidden=true"
+          >
+
+          <span class="placeholder">
+            BADA PHOTO · COMING SOON
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 연락처 -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+
+        <span class="eyebrow">Let's connect</span>
+
+        <h2 id="contact-title">함께 이야기해요.</h2>
+
+        <p class="contact-sub">
+          궁금한 점이 있다면 편하게 연락해 주세요.
+        </p>
+
+        <div class="contact-links">
+
+          <!-- 이메일 -->
+          <a class="contact-link" href="mailto:lecture@hagulu.com">
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.7"
+                 aria-hidden="true">
+              <rect x="2" y="5" width="20" height="14" rx="3"/>
+              <path d="m3 7 9 7 9-7"/>
+            </svg>
+            lecture@hagulu.com
+          </a>
+
+          <!-- 인스타그램 -->
+          <a
+            class="contact-link"
+            href="https://www.instagram.com/hagulu/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.7"
+                 aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="6"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="18" cy="6" r="1"
+                      fill="currentColor" stroke="none"/>
+            </svg>
+            @hagulu
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>
+        © <span id="year">2026</span> 김인규. All rights reserved.
+      </span>
+
+      <div class="footer-links">
+        <a href="mailto:lecture@hagulu.com">Email</a>
+        <a
+          href="https://www.instagram.com/hagulu/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 현재 연도 자동 표시
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+
+    // 모바일 메뉴
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    function closeMenu() {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', '메뉴 열기');
+      toggle.textContent = '☰';
+    }
+
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute(
+        'aria-label',
+        open ? '메뉴 닫기' : '메뉴 열기'
+      );
+      toggle.textContent = open ? '✕' : '☰';
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 700) closeMenu();
+    });
+  </script>
+</body>
+</html>

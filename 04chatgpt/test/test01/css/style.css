@@ -1,0 +1,869 @@
+
+/* ==============================
+   기본 색상 및 디자인 설정
+============================== */
+
+:root {
+  --background: #fff8ed;
+  --card: #ffffff;
+  --orange: #ed7626;
+  --orange-dark: #c95712;
+  --orange-light: #fff0dc;
+  --brown: #493327;
+  --text: #392e27;
+  --muted: #85766b;
+  --border: #eadfce;
+  --shadow: 0 12px 40px rgba(103, 66, 28, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Pretendard", "Noto Sans KR",
+    "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+label {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* ==============================
+   헤더
+============================== */
+
+.header {
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  max-width: 1280px;
+  min-height: 76px;
+  margin: 0 auto;
+  padding: 12px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--orange-dark);
+}
+
+.logo-icon {
+  font-size: 32px;
+}
+
+.header-text {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ==============================
+   전체 레이아웃
+============================== */
+
+.container {
+  max-width: 1280px;
+  min-height: calc(100vh - 77px);
+  margin: 0 auto;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 48px;
+}
+
+/* ==============================
+   피자 소개 영역
+============================== */
+
+.pizza-section {
+  min-width: 0;
+  position: relative;
+}
+
+.pizza-info {
+  position: relative;
+  z-index: 1;
+}
+
+.subtitle {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--orange-dark);
+}
+
+.pizza-info h1 {
+  margin-bottom: 14px;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.25;
+  letter-spacing: -2px;
+  color: var(--brown);
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--muted);
+  word-break: keep-all;
+}
+
+.base-price {
+  margin-top: 18px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--orange-dark);
+}
+
+.base-price span {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.base-price small {
+  font-size: 15px;
+}
+
+/* ==============================
+   피자 이미지
+
+   원본 비율을 유지하며
+   이미지 전체가 보이도록 설정
+============================== */
+
+.pizza-image-wrap {
+  position: relative;
+  width: 100%;
+  height: clamp(280px, 32vw, 480px);
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.pizza-image-wrap::before {
+  content: "";
+  position: absolute;
+  width: 85%;
+  aspect-ratio: 1;
+  max-width: 440px;
+  border-radius: 50%;
+  background: #f9e6c8;
+  z-index: -1;
+}
+
+.pizza-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 24px;
+}
+
+/* ==============================
+   주문 카드
+============================== */
+
+.order-card {
+  min-width: 0;
+  padding: 26px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.order-header {
+  margin-bottom: 20px;
+}
+
+.order-header h2 {
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--brown);
+}
+
+.order-header p {
+  margin-top: 3px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.option-section {
+  min-width: 0;
+  border: none;
+  margin-bottom: 18px;
+}
+
+.option-section legend,
+.quantity-section h3,
+.request-section label {
+  margin-bottom: 9px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brown);
+}
+
+.optional-text {
+  margin-left: 5px;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* ==============================
+   사이즈 및 도우 선택
+============================== */
+
+.size-options,
+.dough-options,
+.topping-options {
+  display: grid;
+  gap: 9px;
+}
+
+.size-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dough-options {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.option {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+/* 기본 라디오 버튼은 숨기되 키보드 조작은 유지 */
+.option input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.option-content {
+  position: relative;
+  height: 100%;
+  min-height: 62px;
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background: #fffcf8;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-align: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.option-content strong {
+  font-size: 13px;
+  word-break: keep-all;
+}
+
+.option-content small {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.option input:checked + .option-content {
+  background: var(--orange-light);
+  border-color: var(--orange);
+  box-shadow: inset 0 0 0 1px var(--orange);
+  color: var(--orange-dark);
+}
+
+.option input:checked + .option-content small {
+  color: var(--orange-dark);
+}
+
+.option input:focus-visible + .option-content {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+.option:hover .option-content {
+  border-color: var(--orange);
+}
+
+/* 사이즈별 원형 아이콘 */
+
+.size-options .option-content {
+  min-height: 94px;
+}
+
+.size-circle {
+  display: block;
+  border: 3px solid #d99142;
+  background: #f9d596;
+  border-radius: 50%;
+  margin-bottom: 3px;
+}
+
+.size-circle.medium {
+  width: 25px;
+  height: 25px;
+}
+
+.size-circle.large {
+  width: 34px;
+  height: 34px;
+}
+
+/* ==============================
+   추가 토핑
+============================== */
+
+.topping-options {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.topping-option {
+  position: relative;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.topping-option input {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 14px;
+  height: 14px;
+  accent-color: var(--orange-dark);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.topping-content {
+  height: 100%;
+  min-height: 102px;
+  padding: 15px 4px 9px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background: #fffcf8;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-align: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.topping-icon {
+  font-size: 28px;
+  line-height: 1.4;
+}
+
+.topping-name {
+  font-size: 11px;
+  font-weight: 700;
+  word-break: keep-all;
+}
+
+.topping-content small {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.topping-option input:checked + .topping-content {
+  border-color: var(--orange);
+  background: var(--orange-light);
+  box-shadow: inset 0 0 0 1px var(--orange);
+}
+
+.topping-option input:focus-visible + .topping-content {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+.topping-option:hover .topping-content {
+  border-color: var(--orange);
+}
+
+/* ==============================
+   수량 조절
+============================== */
+
+.quantity-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.quantity-section h3 {
+  margin-bottom: 0;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.quantity-control button {
+  width: 42px;
+  height: 38px;
+  border: none;
+  background: var(--orange-light);
+  color: var(--orange-dark);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.quantity-control button:hover:not(:disabled) {
+  background: var(--orange);
+  color: white;
+}
+
+.quantity-control button:disabled {
+  background: #f5f2ed;
+  color: #b9b0a6;
+}
+
+.quantity-control button:focus-visible {
+  outline-offset: -4px;
+}
+
+#quantity {
+  min-width: 48px;
+  padding: 0 8px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==============================
+   주문 요청사항
+============================== */
+
+.request-section {
+  margin-bottom: 18px;
+}
+
+.request-section label {
+  display: block;
+}
+
+.request-section textarea {
+  display: block;
+  width: 100%;
+  min-height: 64px;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: #fffcf8;
+  color: var(--text);
+  font-size: 13px;
+  resize: vertical;
+}
+
+.request-section textarea::placeholder {
+  color: #9c8d80;
+}
+
+.request-section textarea:focus {
+  border-color: var(--orange);
+}
+
+/* ==============================
+   총금액 및 주문 버튼
+============================== */
+
+.price-section {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background: var(--orange-light);
+  border-radius: 16px;
+}
+
+.price-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.price-info > span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brown);
+}
+
+#total-price {
+  font-size: clamp(22px, 2.3vw, 30px);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -1px;
+  color: var(--orange-dark);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.order-btn,
+.close-btn {
+  min-height: 48px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 12px;
+  background: var(--orange-dark);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+
+.order-btn {
+  flex-shrink: 0;
+}
+
+.order-btn:hover,
+.close-btn:hover {
+  background: #a9430a;
+}
+
+.reset-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  margin: 12px auto 0;
+  padding: 5px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.reset-btn span {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.reset-btn:hover {
+  color: var(--orange-dark);
+  border-color: var(--orange);
+  background: var(--orange-light);
+}
+
+/* ==============================
+   주문 결과 팝업
+============================== */
+
+.order-modal {
+  position: fixed;
+  inset: 0;
+  width: min(440px, calc(100% - 32px));
+  max-height: calc(100dvh - 40px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: white;
+  color: var(--text);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+.order-modal::backdrop {
+  background: rgba(50, 34, 20, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  padding: 28px;
+}
+
+.modal-icon {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--orange-light);
+  border-radius: 50%;
+  color: var(--orange-dark);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.modal-content h2 {
+  text-align: center;
+  font-size: 23px;
+  color: var(--brown);
+}
+
+.modal-description {
+  margin-top: 5px;
+  margin-bottom: 22px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.result-pizza-name {
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.result-list {
+  padding: 12px 0;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 7px 0;
+  font-size: 14px;
+}
+
+.result-row dt {
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+.result-row dd {
+  text-align: right;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.result-request {
+  padding: 13px;
+  background: var(--background);
+  border-radius: 12px;
+}
+
+.result-request h3 {
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.result-request p {
+  font-size: 13px;
+  color: var(--muted);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.result-total {
+  margin: 18px 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.result-total span {
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.result-total strong {
+  font-size: 27px;
+  color: var(--orange-dark);
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.close-btn {
+  width: 100%;
+}
+
+.demo-notice {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* ==============================
+   태블릿 반응형
+============================== */
+
+@media (max-width: 1050px) {
+  .container {
+    gap: 26px;
+    padding: 26px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  }
+
+  .order-card {
+    padding: 20px;
+  }
+
+  .pizza-info h1 {
+    font-size: 40px;
+  }
+}
+
+/* ==============================
+   모바일 반응형
+============================== */
+
+@media (max-width: 760px) {
+  .header-inner {
+    min-height: 64px;
+    padding: 12px 20px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .header-text {
+    display: none;
+  }
+
+  .container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding: 28px 20px;
+    min-height: auto;
+  }
+
+  .pizza-info {
+    text-align: center;
+  }
+
+  .pizza-info h1 {
+    font-size: 36px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .base-price {
+    justify-content: center;
+  }
+
+  .pizza-image-wrap {
+    height: clamp(240px, 65vw, 420px);
+    margin-top: 12px;
+  }
+
+  .pizza-image-wrap::before {
+    width: 75%;
+    max-width: 360px;
+  }
+
+  .order-card {
+    padding: 22px;
+    border-radius: 22px;
+  }
+}
+
+/* 작은 모바일 화면 */
+
+@media (max-width: 420px) {
+  .container {
+    padding: 24px 12px;
+  }
+
+  .order-card {
+    padding: 17px;
+  }
+
+  .topping-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .topping-name {
+    font-size: 12px;
+  }
+
+  .option-content strong {
+    font-size: 12px;
+  }
+
+  .price-section {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .order-btn {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+
+  .modal-content {
+    padding: 22px;
+  }
+}
+
+/* 움직임 최소화 설정 대응 */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,1070 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="문학동네 어린 왕자 도서 소개 - 책 정보, 줄거리, 주요 등장인물">
+  <title>어린 왕자 | 도서 소개</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==============================
+       01. 기본 설정
+    ============================== */
+    :root {
+      --bg: #fffbf2;
+      --bg-soft: #fff6df;
+      --yellow: #ffe49a;
+      --yellow-light: #fff0bd;
+      --gold: #e9b84f;
+      --brown: #4b3022;
+      --text: #594638;
+      --muted: #927b65;
+      --border: #f0e3ca;
+      --white: #fffefa;
+      --shadow: 0 12px 35px rgba(110, 78, 35, 0.07);
+      --radius: 22px;
+      --container: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      font-family: "Noto Sans KR", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(100% - 48px, var(--container));
+      margin: 0 auto;
+    }
+
+    .serif {
+      font-family: "Noto Serif KR", serif;
+    }
+
+    section {
+      scroll-margin-top: 100px;
+    }
+
+    /* ==============================
+       02. 헤더
+    ============================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 251, 242, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Noto Serif KR", serif;
+      font-size: 23px;
+      font-weight: 700;
+      color: var(--brown);
+      white-space: nowrap;
+    }
+
+    .logo-star {
+      color: var(--gold);
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 42px;
+    }
+
+    .nav a {
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.25s;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: #c78c1e;
+    }
+
+    .header-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 24px;
+      background: var(--yellow);
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--brown);
+      transition: background 0.25s, transform 0.25s;
+    }
+
+    .header-button:hover {
+      background: #ffd76c;
+      transform: translateY(-2px);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 27px;
+      color: var(--brown);
+      line-height: 1;
+    }
+
+    /* ==============================
+       03. 메인 비주얼
+    ============================== */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 48%, #ffefbf 0, transparent 33%),
+        radial-gradient(circle at 86% 28%, #fff0c8 0, transparent 32%),
+        linear-gradient(120deg, #fff8e8, #fffbf2);
+    }
+
+    .hero-inner {
+      position: relative;
+      min-height: 500px;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr) 310px;
+      align-items: center;
+      gap: 52px;
+      padding: 72px 0;
+    }
+
+    .book-cover-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .book-cover-wrap::before {
+      content: "";
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      background: #ffe8a5;
+      border-radius: 50%;
+      top: 50%;
+      left: -40px;
+      transform: translateY(-50%);
+      filter: blur(5px);
+      opacity: 0.65;
+      z-index: -1;
+    }
+
+    .book-cover {
+      width: 250px;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      border-radius: 5px 12px 12px 5px;
+      box-shadow: 12px 18px 30px rgba(91, 65, 36, 0.2);
+      background: #f4e9d3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: #bc8a2e;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: "Noto Serif KR", serif;
+      font-size: clamp(46px, 5vw, 76px);
+      line-height: 1.25;
+      letter-spacing: -3px;
+      color: var(--brown);
+      margin-bottom: 18px;
+    }
+
+    .hero-author {
+      font-family: "Noto Serif KR", serif;
+      font-size: 16px;
+      color: #73513a;
+    }
+
+    .hero-line {
+      width: 45px;
+      height: 3px;
+      background: var(--gold);
+      margin: 27px 0;
+    }
+
+    .hero-description {
+      font-family: "Noto Serif KR", serif;
+      font-size: 17px;
+      line-height: 2;
+      color: var(--brown);
+      max-width: 460px;
+    }
+
+    .hero-art {
+      position: relative;
+      align-self: end;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .hero-art img {
+      width: 100%;
+      max-height: 370px;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 16px rgba(118, 87, 35, 0.08));
+    }
+
+    .decor-star {
+      position: absolute;
+      color: #e5b444;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .star-one {
+      top: 55px;
+      right: 22%;
+      font-size: 24px;
+    }
+
+    .star-two {
+      bottom: 80px;
+      left: 47%;
+      font-size: 18px;
+    }
+
+    .star-three {
+      top: 100px;
+      right: 5%;
+      font-size: 16px;
+    }
+
+    /* ==============================
+       04. 공통 섹션
+    ============================== */
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      font-family: "Noto Serif KR", serif;
+      font-size: 28px;
+      color: var(--brown);
+    }
+
+    .section-icon {
+      font-size: 27px;
+      color: #d9a12e;
+    }
+
+    .section-subtitle {
+      margin-top: -18px;
+      margin-bottom: 32px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ==============================
+       05. 책 정보 + 줄거리
+    ============================== */
+    .info-section {
+      padding-top: 74px;
+      padding-bottom: 72px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .card-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 28px;
+      background: linear-gradient(90deg, #fff0bb, #fff7e2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-heading h2 {
+      font-family: "Noto Serif KR", serif;
+      font-size: 22px;
+      color: var(--brown);
+    }
+
+    .card-heading .icon {
+      color: #d59c2a;
+      font-size: 24px;
+    }
+
+    .book-info {
+      padding: 24px 28px 30px;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 15px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f2e9d8;
+      font-size: 14px;
+    }
+
+    .info-row:last-child {
+      border-bottom: 0;
+    }
+
+    .info-label {
+      font-weight: 700;
+      color: var(--brown);
+    }
+
+    .info-value {
+      overflow-wrap: anywhere;
+    }
+
+    .synopsis {
+      padding: 28px 32px 34px;
+      font-size: 15px;
+      line-height: 2.15;
+    }
+
+    .synopsis p + p {
+      margin-top: 20px;
+    }
+
+    /* ==============================
+       06. 등장인물
+    ============================== */
+    .characters-section {
+      padding-top: 65px;
+      padding-bottom: 110px;
+      background: linear-gradient(180deg, #fffbf2, #fff7e6);
+    }
+
+    .characters-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .character-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px 18px 26px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(101, 72, 35, 0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .character-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 16px 32px rgba(101, 72, 35, 0.12);
+    }
+
+    .character-image {
+      width: 100%;
+      height: 155px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 18px;
+      background: #fff8e9;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .character-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s;
+    }
+
+    .character-card:hover .character-image img {
+      transform: scale(1.06);
+    }
+
+    .character-card h3 {
+      font-family: "Noto Serif KR", serif;
+      color: var(--brown);
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .character-role {
+      display: inline-block;
+      background: var(--yellow-light);
+      color: #8b621d;
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .character-card p {
+      font-size: 13px;
+      line-height: 1.9;
+      color: #75604d;
+    }
+
+    /* ==============================
+       07. 푸터
+    ============================== */
+    .footer {
+      padding: 35px 0;
+      border-top: 1px solid var(--border);
+      background: #fff9e9;
+      text-align: center;
+    }
+
+    .footer-title {
+      font-family: "Noto Serif KR", serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--brown);
+      margin-bottom: 7px;
+    }
+
+    .footer p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ==============================
+       08. 반응형
+    ============================== */
+    @media (max-width: 1100px) {
+      .hero-inner {
+        grid-template-columns: 230px minmax(0, 1fr) 230px;
+        gap: 28px;
+      }
+
+      .book-cover {
+        width: 220px;
+      }
+
+      .characters-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 800px) {
+      .header-inner {
+        min-height: 72px;
+      }
+
+      .nav {
+        gap: 20px;
+      }
+
+      .header-button {
+        display: none;
+      }
+
+      .hero-inner {
+        grid-template-columns: 220px 1fr;
+        padding: 60px 0;
+      }
+
+      .hero-art {
+        display: none;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .characters-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 36px, var(--container));
+      }
+
+      .logo {
+        font-size: 19px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 18px 24px 24px;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav.open {
+        display: flex;
+      }
+
+      .nav a {
+        padding: 12px 4px;
+      }
+
+      .hero-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 38px;
+        padding: 54px 0 65px;
+        text-align: center;
+      }
+
+      .book-cover {
+        width: 205px;
+      }
+
+      .book-cover-wrap::before {
+        width: 220px;
+        height: 220px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero-author {
+        font-size: 14px;
+      }
+
+      .hero-line {
+        margin: 24px auto;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .info-section {
+        padding: 52px 0;
+      }
+
+      .card-heading {
+        padding: 18px 22px;
+      }
+
+      .book-info {
+        padding: 18px 20px;
+      }
+
+      .info-row {
+        grid-template-columns: 92px minmax(0, 1fr);
+        gap: 10px;
+        font-size: 13px;
+      }
+
+      .synopsis {
+        padding: 22px;
+        font-size: 14px;
+      }
+
+      .characters-section {
+        padding: 50px 0 75px;
+      }
+
+      .characters-grid {
+        gap: 12px;
+      }
+
+      .character-card {
+        padding: 16px 12px 20px;
+      }
+
+      .character-image {
+        height: 120px;
+      }
+
+      .character-card h3 {
+        font-size: 17px;
+      }
+
+      .character-card p {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .characters-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .character-image {
+        height: 170px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==============================
+       헤더
+  ============================== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#home" class="logo" aria-label="어린 왕자 홈">
+        <span class="logo-star" aria-hidden="true">★</span>
+        어린 왕자
+      </a>
+
+      <nav class="nav" id="navigation" aria-label="주요 메뉴">
+        <a href="#home">책 소개</a>
+        <a href="#book-info">책 정보</a>
+        <a href="#synopsis">줄거리</a>
+        <a href="#characters">등장인물</a>
+      </nav>
+
+      <a href="#book-info" class="header-button">도서 정보</a>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="메뉴 열기"
+        aria-controls="navigation"
+        aria-expanded="false"
+      >☰</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==============================
+         메인 비주얼
+    ============================== -->
+    <section class="hero" id="home">
+      <span class="decor-star star-one" aria-hidden="true">✦</span>
+      <span class="decor-star star-two" aria-hidden="true">★</span>
+      <span class="decor-star star-three" aria-hidden="true">✧</span>
+
+      <div class="container hero-inner">
+
+        <div class="book-cover-wrap">
+          <!-- 이미지 교체 01: 책 표지 -->
+          <!-- 실제 문학동네 표지 이미지 주소로 src를 변경하세요. -->
+          <img
+            class="book-cover"
+            src="https://placehold.co/500x750/FFF1CD/6B4A2E?text=Le+Petit+Prince"
+            alt="문학동네 어린 왕자 책 표지 샘플"
+          >
+        </div>
+
+        <div class="hero-content">
+          <p class="eyebrow">BOOK INTRODUCTION</p>
+          <h1>어린 왕자</h1>
+          <p class="hero-author">
+            앙투안 드 생텍쥐페리 지음 · 김화영 옮김
+          </p>
+
+          <div class="hero-line"></div>
+
+          <p class="hero-description">
+            어른이 되면서 잊고 지냈던 사랑과 우정,<br>
+            그리고 삶에서 진정으로 소중한 것들을<br>
+            일깨워주는 아름다운 이야기.
+          </p>
+        </div>
+
+        <div class="hero-art">
+          <!-- 이미지 교체 02: 어린 왕자 메인 일러스트 -->
+          <img
+            src="https://placehold.co/600x650/FFF3D6/9A713D?text=Little+Prince"
+            alt="작은 행성 위의 어린 왕자 일러스트 샘플"
+          >
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================
+         책 정보 / 줄거리
+    ============================== -->
+    <section class="info-section section" id="book-info">
+      <div class="container info-grid">
+
+        <!-- 책 정보 -->
+        <article class="info-card">
+          <div class="card-heading">
+            <span class="icon" aria-hidden="true">▣</span>
+            <h2>책 정보</h2>
+          </div>
+
+          <div class="book-info">
+            <div class="info-row">
+              <span class="info-label">책 제목</span>
+              <span class="info-value">어린 왕자</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">원제</span>
+              <span class="info-value">Le Petit Prince</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">작가</span>
+              <span class="info-value">앙투안 드 생텍쥐페리</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">번역</span>
+              <span class="info-value">김화영</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">출판사</span>
+              <span class="info-value">문학동네</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">장르</span>
+              <span class="info-value">프랑스 소설 · 고전문학</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">출간일</span>
+              <span class="info-value">2007년 5월 8일</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">페이지 수</span>
+              <span class="info-value">148쪽</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">ISBN</span>
+              <span class="info-value">9788954603096</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 줄거리 -->
+        <article class="info-card" id="synopsis">
+          <div class="card-heading">
+            <span class="icon" aria-hidden="true">✎</span>
+            <h2>줄거리</h2>
+          </div>
+
+          <div class="synopsis">
+            <p>
+              사하라 사막에 불시착한 비행사는 어느 날
+              작은 별 B612에서 온 신비로운 소년,
+              어린 왕자를 만난다.
+            </p>
+
+            <p>
+              어린 왕자는 자신의 별에 남겨둔 장미와
+              여러 행성을 여행하며 만난 어른들의
+              이야기를 들려준다.
+            </p>
+
+            <p>
+              지구에 도착한 어린 왕자는 여우와의 만남을 통해
+              누군가와 관계를 맺는다는 것의 의미와
+              사랑에 따르는 책임을 깨닫게 된다.
+            </p>
+
+            <p>
+              순수한 어린 왕자의 시선을 통해
+              우리가 살아가면서 놓치기 쉬운 진정한 가치가
+              무엇인지 되돌아보게 하는 작품이다.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==============================
+         주요 등장인물
+    ============================== -->
+    <section class="characters-section section" id="characters">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-icon" aria-hidden="true">✦</span>
+          <h2>주요 등장인물</h2>
+        </div>
+
+        <p class="section-subtitle">
+          어린 왕자의 여행 속에서 만나는 소중한 존재들
+        </p>
+
+        <div class="characters-grid">
+
+          <!-- 등장인물 01 -->
+          <article class="character-card">
+            <div class="character-image">
+              <!-- 이미지 교체 03: 어린 왕자 -->
+              <img
+                src="https://placehold.co/400x400/FFF0C5/946E37?text=Prince"
+                alt="어린 왕자 일러스트 샘플"
+                loading="lazy"
+              >
+            </div>
+            <h3>어린 왕자</h3>
+            <span class="character-role">주인공</span>
+            <p>
+              소행성 B612에서 온 순수하고 호기심 많은 소년.
+              여러 별을 여행하며 사랑과 우정,
+              삶의 의미를 배운다.
+            </p>
+          </article>
+
+          <!-- 등장인물 02 -->
+          <article class="character-card">
+            <div class="character-image">
+              <!-- 이미지 교체 04: 비행사 -->
+              <img
+                src="https://placehold.co/400x400/F6E8CD/946E37?text=Pilot"
+                alt="비행사 일러스트 샘플"
+                loading="lazy"
+              >
+            </div>
+            <h3>비행사</h3>
+            <span class="character-role">이야기의 화자</span>
+            <p>
+              사하라 사막에 불시착한 조종사.
+              어린 왕자를 만나 그의 이야기를 들으며
+              잊고 있던 순수한 마음을 되찾는다.
+            </p>
+          </article>
+
+          <!-- 등장인물 03 -->
+          <article class="character-card">
+            <div class="character-image">
+              <!-- 이미지 교체 05: 여우 -->
+              <img
+                src="https://placehold.co/400x400/FFEAC7/946E37?text=Fox"
+                alt="여우 일러스트 샘플"
+                loading="lazy"
+              >
+            </div>
+            <h3>여우</h3>
+            <span class="character-role">친구</span>
+            <p>
+              어린 왕자에게 서로 관계를 맺는다는 것의
+              의미와 관계의 소중함을
+              알려주는 존재.
+            </p>
+          </article>
+
+          <!-- 등장인물 04 -->
+          <article class="character-card">
+            <div class="character-image">
+              <!-- 이미지 교체 06: 장미 -->
+              <img
+                src="https://placehold.co/400x400/FFE9DF/A76D63?text=Rose"
+                alt="장미 일러스트 샘플"
+                loading="lazy"
+              >
+            </div>
+            <h3>장미</h3>
+            <span class="character-role">소중한 존재</span>
+            <p>
+              어린 왕자의 별에 피어난 아름답고
+              자존심 강한 꽃.
+              사랑과 책임을 상징한다.
+            </p>
+          </article>
+
+          <!-- 등장인물 05 -->
+          <article class="character-card">
+            <div class="character-image">
+              <!-- 이미지 교체 07: 뱀 -->
+              <img
+                src="https://placehold.co/400x400/FFF1CE/946E37?text=Snake"
+                alt="뱀 일러스트 샘플"
+                loading="lazy"
+              >
+            </div>
+            <h3>뱀</h3>
+            <span class="character-role">신비로운 존재</span>
+            <p>
+              지구에서 어린 왕자가 만나는 존재로,
+              이야기의 중요한 전환점에서
+              역할을 한다.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==============================
+       푸터
+  ============================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-title">★ 어린 왕자</div>
+      <p>Le Petit Prince · 앙투안 드 생텍쥐페리</p>
+      <p>문학동네 출판 도서 소개 페이지 · 비공식 소개 사이트</p>
+    </div>
+  </footer>
+
+  <!-- ==============================
+       JavaScript
+  ============================== -->
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navigation = document.getElementById("navigation");
+    const navLinks = document.querySelectorAll(".nav a");
+
+    // 모바일 메뉴 열기 / 닫기
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navigation.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "메뉴 닫기" : "메뉴 열기"
+      );
+
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // 메뉴 선택 후 모바일 메뉴 닫기
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "메뉴 열기");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // 화면 크기가 커지면 모바일 메뉴 초기화
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 600) {
+        navigation.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "메뉴 열기");
+        menuToggle.textContent = "☰";
+      }
+    });
+
+    // 현재 보이는 섹션에 따라 내비게이션 강조
+    const sections = document.querySelectorAll(
+      "#home, #book-info, #synopsis, #characters"
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navLinks.forEach((link) => {
+              link.classList.toggle(
+                "active",
+                link.getAttribute("href") === "#" + entry.target.id
+              );
+            });
+          }
+        });
+      },
+      {
+        rootMargin: "-20% 0px -65% 0px",
+        threshold: 0
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  </script>
+
+</body>
+</html>

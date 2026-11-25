@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>dulumary | 공원 산책 기록</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+  <main class="page">
+    <article class="post" aria-label="공원 산책 게시물">
+
+      <!-- 작성자 정보 -->
+      <header class="post-header">
+        <div class="author">
+          <div class="avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="4" fill="currentColor"/>
+              <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"
+                    fill="currentColor"/>
+            </svg>
+          </div>
+
+          <div class="author-info">
+            <strong class="author-name">dulumary</strong>
+            <time datetime="2026-11-23">2026.11.23</time>
+          </div>
+        </div>
+      </header>
+
+      <!-- 사진 슬라이드 -->
+      <section class="gallery" aria-label="공원 산책 사진 갤러리">
+
+        <div class="gallery-frame">
+          <div class="gallery-image-wrap">
+
+            <!--
+              사진 변경은 아래 img 태그의 src만 수정하세요.
+              사진 경로는 index.html 기준입니다.
+            -->
+            <img
+              class="gallery-image gallery-slide"
+              src="images/img01.jpg"
+              alt="공원 산책 사진 1"
+            >
+
+            <img
+              class="gallery-image gallery-slide"
+              src="images/img02.jpg"
+              alt="공원 산책 사진 2"
+              hidden
+            >
+
+            <img
+              class="gallery-image gallery-slide"
+              src="images/img03.jpg"
+              alt="공원 산책 사진 3"
+              hidden
+            >
+
+            <!-- 이미지가 없을 때 표시 -->
+            <div
+              class="image-placeholder"
+              id="imagePlaceholder"
+              hidden
+            >
+              <svg viewBox="0 0 64 64" fill="none"
+                   aria-hidden="true">
+                <rect x="7" y="10" width="50" height="44"
+                      rx="2" stroke="currentColor"
+                      stroke-width="2"/>
+                <circle cx="22" cy="23" r="5"
+                        stroke="currentColor"
+                        stroke-width="2"/>
+                <path d="M8 45l15-15 12 11 9-9 13 13"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linejoin="round"/>
+              </svg>
+              <span>산책 사진을 준비해 주세요</span>
+            </div>
+          </div>
+
+          <div
+            class="photo-counter"
+            id="photoCounter"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            01 / 03
+          </div>
+
+          <span
+            class="frame-corner top-left"
+            aria-hidden="true"
+          ></span>
+          <span
+            class="frame-corner bottom-right"
+            aria-hidden="true"
+          ></span>
+        </div>
+
+        <button
+          type="button"
+          class="slide-button prev-button"
+          id="prevButton"
+          aria-label="이전 사진 보기"
+        >
+          <svg viewBox="0 0 24 24" fill="none"
+               aria-hidden="true">
+            <path d="M15 4l-8 8 8 8"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          class="slide-button next-button"
+          id="nextButton"
+          aria-label="다음 사진 보기"
+        >
+          <svg viewBox="0 0 24 24" fill="none"
+               aria-hidden="true">
+            <path d="M9 4l8 8-8 8"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </section>
+
+      <!-- 좋아요와 게시글 -->
+      <section class="post-content" aria-label="산책 이야기">
+
+        <div class="like-area">
+          <button
+            type="button"
+            class="like-button"
+            id="likeButton"
+            aria-label="좋아요"
+            aria-pressed="false"
+          >
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 aria-hidden="true">
+              <path
+                d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <span class="like-label">좋아요</span>
+        </div>
+
+        <div class="post-text">
+          <p class="caption">
+            날씨는 추웠지만, 아직 단풍이 남아 있어서
+            기분이 좋았어요.
+          </p>
+          <p class="hashtags">#공원산책#한파#상쾌</p>
+        </div>
+      </section>
+
+      <!-- 댓글 입력 -->
+      <section class="comment-section" aria-label="댓글 작성">
+        <form id="commentForm" novalidate>
+          <div class="comment-field">
+            <label for="commentInput" class="sr-only">
+              댓글 입력
+            </label>
+
+            <textarea
+              id="commentInput"
+              placeholder="댓글을 입력해 주세요."
+              maxlength="200"
+              rows="1"
+              aria-describedby="charCount"
+            ></textarea>
+
+            <span
+              class="char-count"
+              id="charCount"
+              aria-live="off"
+            >
+              0 / 200자
+            </span>
+          </div>
+
+          <button
+            type="submit"
+            class="submit-button"
+            id="submitButton"
+            disabled
+          >
+            댓글 등록
+          </button>
+        </form>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- 댓글 저장 불가 안내 팝업 -->
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+      aria-describedby="modalDescription"
+      tabindex="-1"
+    >
+      <button
+        type="button"
+        class="modal-close"
+        id="modalClose"
+        aria-label="팝업 닫기"
+      >
+        &times;
+      </button>
+
+      <div class="modal-icon" aria-hidden="true">i</div>
+
+      <h2 id="modalTitle">댓글 등록 안내</h2>
+
+      <p id="modalDescription">
+        이 페이지는 산책 기록을 감상하기 위한 공간으로,
+        댓글 저장 기능은 제공하지 않습니다.
+      </p>
+
+      <button
+        type="button"
+        class="modal-confirm"
+        id="modalConfirm"
+      >
+        확인
+      </button>
+    </div>
+  </div>
+
+</body>
+</html>

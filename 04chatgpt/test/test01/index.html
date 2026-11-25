@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff8ed">
+  <title>Pizza House | 피자 주문</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon" aria-hidden="true">🍕</span>
+        <span>Pizza House</span>
+      </div>
+      <span class="header-text">맛있는 피자, 나만의 선택</span>
+    </div>
+  </header>
+
+  <!-- 메인 영역 -->
+  <main class="container">
+
+    <!-- 피자 소개 영역 -->
+    <section class="pizza-section" aria-labelledby="pizza-name">
+
+      <div class="pizza-info">
+        <span class="subtitle">FRESH & DELICIOUS</span>
+
+        <h1 id="pizza-name">페퍼로니 피자</h1>
+
+        <p class="description">
+          풍부한 모짜렐라 치즈와 짭짤한 페퍼로니의 조화.<br>
+          원하는 토핑으로 나만의 피자를 만들어 보세요.
+        </p>
+
+        <div class="base-price">
+          <span id="base-price">18,000원</span>
+          <small>부터</small>
+        </div>
+      </div>
+
+      <div class="pizza-image-wrap">
+
+        <!-- 피자 이미지 수정 영역: src 경로만 변경하세요 -->
+        <img
+          src="images/pizza-img.jpg"
+          alt="모짜렐라 치즈와 페퍼로니가 올라간 피자"
+          class="pizza-image"
+        >
+
+      </div>
+
+    </section>
+
+    <!-- 주문 카드 -->
+    <form class="order-card" id="order-form">
+
+      <div class="order-header">
+        <h2>나만의 피자 만들기</h2>
+        <p>원하는 옵션을 선택해 주세요.</p>
+      </div>
+
+      <!-- 사이즈 선택 -->
+      <fieldset class="option-section">
+        <legend>사이즈 선택</legend>
+
+        <div class="size-options">
+
+          <label class="option">
+            <input type="radio" name="size" value="medium" checked>
+            <span class="option-content">
+              <span class="size-circle medium" aria-hidden="true"></span>
+              <strong>미디움</strong>
+              <small data-price="size.medium">18,000원</small>
+            </span>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="size" value="large">
+            <span class="option-content">
+              <span class="size-circle large" aria-hidden="true"></span>
+              <strong>라지</strong>
+              <small data-price="size.large">22,000원</small>
+            </span>
+          </label>
+
+        </div>
+      </fieldset>
+
+      <!-- 도우 선택 -->
+      <fieldset class="option-section">
+        <legend>도우 선택</legend>
+
+        <div class="dough-options">
+
+          <label class="option">
+            <input type="radio" name="dough" value="original" checked>
+            <span class="option-content">
+              <strong>오리지널</strong>
+              <small data-price="dough.original">기본</small>
+            </span>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="dough" value="thin">
+            <span class="option-content">
+              <strong>씬</strong>
+              <small data-price="dough.thin">기본</small>
+            </span>
+          </label>
+
+          <label class="option">
+            <input type="radio" name="dough" value="cheese">
+            <span class="option-content">
+              <strong>치즈 크러스트</strong>
+              <small data-price="dough.cheese">+3,000원</small>
+            </span>
+          </label>
+
+        </div>
+      </fieldset>
+
+      <!-- 추가 토핑 -->
+      <fieldset class="option-section">
+        <legend>
+          추가 토핑
+          <span class="optional-text">복수 선택 가능</span>
+        </legend>
+
+        <div class="topping-options">
+
+          <label class="topping-option">
+            <input type="checkbox" name="topping" value="cheese">
+            <span class="topping-content">
+              <span class="topping-icon" aria-hidden="true">🧀</span>
+              <span class="topping-name">모짜렐라 치즈</span>
+              <small data-price="topping.cheese">+2,000원</small>
+            </span>
+          </label>
+
+          <label class="topping-option">
+            <input type="checkbox" name="topping" value="pepperoni">
+            <span class="topping-content">
+              <span class="topping-icon" aria-hidden="true">🍕</span>
+              <span class="topping-name">페퍼로니</span>
+              <small data-price="topping.pepperoni">+1,500원</small>
+            </span>
+          </label>
+
+          <label class="topping-option">
+            <input type="checkbox" name="topping" value="bacon">
+            <span class="topping-content">
+              <span class="topping-icon" aria-hidden="true">🥓</span>
+              <span class="topping-name">베이컨</span>
+              <small data-price="topping.bacon">+2,000원</small>
+            </span>
+          </label>
+
+          <label class="topping-option">
+            <input type="checkbox" name="topping" value="olive">
+            <span class="topping-content">
+              <span class="topping-icon" aria-hidden="true">🫒</span>
+              <span class="topping-name">올리브</span>
+              <small data-price="topping.olive">+1,000원</small>
+            </span>
+          </label>
+
+        </div>
+      </fieldset>
+
+      <!-- 수량 선택 -->
+      <div class="quantity-section">
+        <h3>주문 수량</h3>
+
+        <div class="quantity-control">
+          <button
+            type="button"
+            id="minus-btn"
+            aria-label="수량 감소"
+            disabled
+          >−</button>
+
+          <output id="quantity" aria-live="polite">1</output>
+
+          <button
+            type="button"
+            id="plus-btn"
+            aria-label="수량 증가"
+          >+</button>
+        </div>
+      </div>
+
+      <!-- 주문 요청사항 -->
+      <div class="request-section">
+        <label for="request">주문 요청사항</label>
+
+        <textarea
+          id="request"
+          name="request"
+          rows="2"
+          placeholder="요청사항을 입력해 주세요."
+        ></textarea>
+      </div>
+
+      <!-- 총금액 -->
+      <div class="price-section">
+        <div class="price-info">
+          <span>총 주문 금액</span>
+          <output id="total-price" aria-live="polite">18,000원</output>
+        </div>
+
+        <button type="submit" class="order-btn">
+          주문하기
+        </button>
+      </div>
+
+      <!-- 초기화 버튼 -->
+      <button type="reset" class="reset-btn">
+        <span aria-hidden="true">↻</span>
+        선택 초기화
+      </button>
+
+    </form>
+
+  </main>
+
+  <!-- 주문 결과 팝업 -->
+  <dialog
+    class="order-modal"
+    id="order-modal"
+    aria-labelledby="modal-title"
+  >
+
+    <div class="modal-content">
+
+      <div class="modal-icon" aria-hidden="true">✓</div>
+
+      <h2 id="modal-title">주문 내역 확인</h2>
+      <p class="modal-description">선택하신 주문 내역입니다.</p>
+
+      <div class="result-pizza-name" id="result-name">
+        페퍼로니 피자
+      </div>
+
+      <dl class="result-list">
+
+        <div class="result-row">
+          <dt>사이즈</dt>
+          <dd id="result-size"></dd>
+        </div>
+
+        <div class="result-row">
+          <dt>도우</dt>
+          <dd id="result-dough"></dd>
+        </div>
+
+        <div class="result-row">
+          <dt>추가 토핑</dt>
+          <dd id="result-toppings"></dd>
+        </div>
+
+        <div class="result-row">
+          <dt>주문 수량</dt>
+          <dd id="result-quantity"></dd>
+        </div>
+
+      </dl>
+
+      <div class="result-request">
+        <h3>주문 요청사항</h3>
+        <p id="result-request"></p>
+      </div>
+
+      <div class="result-total">
+        <span>총 주문 금액</span>
+        <strong id="result-total"></strong>
+      </div>
+
+      <button type="button" class="close-btn" id="close-modal">
+        닫기
+      </button>
+
+      <p class="demo-notice">
+        실제 주문 및 결제는 진행되지 않습니다.
+      </p>
+
+    </div>
+
+  </dialog>
+
+</body>
+</html>

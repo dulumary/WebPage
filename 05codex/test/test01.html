@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>예금 이자 계산기</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container mt-4">
+            <h2 class="text-center text-primary">예금 이자 계산기</h2>
+            <div class="text-center">예금 정보를 입력하고 계산해 보세요</div>
+            <hr>
+            <div class="bg-light p-4 rounded">
+                <h3>예금 정보 입력</h3>
+                <label class="mt-3  mb-2">예금 금액 (원)</label>
+                <input id="amountInput" type="number" class="form-control"> <br>
+                <label class="mb-2">연이율 (%)</label>
+                <input id="rateInput" type="text" class="form-control"> <br>
+                <label class="mb-2">예치 기간 (년)</label>
+                <input id="yearsInput" type="number" class="form-control">
+                <br>
+                <button id="calculateBtn" type="button" class="btn btn-primary">이자 계산하기</button>
+            </div>
+
+            <div class="border p-4 rounded mt-3">
+                <h3>계산 결과</h3>
+                <hr>
+                <div>예상 이자</div>
+                <h4 class="text-success mt-2">
+                    <span id="interestSpan">13600</span>원
+                </h4>
+                <div class="mt-3">만기시 총급액</div>
+                <h4 class="text-primary mt-2">
+                    <span id="totalSpan">213600</span>원
+                </h4>
+            </div>
+
+            <p class="text-secondary mt-3 small">
+                ※ 세금과 복리를 고려하지 않은 단리 계산입니다.
+            </p>
+
+            <script>
+
+                const calculateBtn = document.querySelector("#calculateBtn");
+
+                calculateBtn.addEventListener("click", () => {
+                    const amountInput = document.querySelector("#amountInput");
+                    const amount = Number(amountInput.value);
+
+                    if(amount == "") {
+                        alert("예금 금액을 입력하세요");
+                        return ;
+                    }
+
+                    const rateInput = document.querySelector("#rateInput");
+                    const rate = Number(rateInput.value);
+
+                    if(rate == "") {
+                        alert("연이율을 입력하세요");
+                        return ;
+                    }
+
+                    const yearsInput = document.querySelector("#yearsInput");
+                    const years = Number(yearsInput.value);
+                    if(years == "") {
+                        alert("예치 기간을 입력하세요");
+                        return ;
+                    }
+
+                    const interest = amount * (rate / 100) * years;
+                    
+                    const interestSpan = document.querySelector("#interestSpan");
+                    interestSpan.textContent = Math.round(interest);
+
+                    const total = amount + interest;
+
+                    const totalSpan = document.querySelector("#totalSpan");
+                    totalSpan.textContent = total;
+
+
+                });
+
+            </script>
+        </div>
+    </body>
+</html>
