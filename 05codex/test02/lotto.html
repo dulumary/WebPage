@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>로또 당첨 게임</title>
+  <link rel="stylesheet" href="./css/lotto.css">
+  <link rel="stylesheet" href="./css/navigation.css">
+  <script src="./js/lotto.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <nav class="home-nav" aria-label="페이지 이동">
+      <a class="game-link" href="./index.html"><span class="home-icon" aria-hidden="true"></span>메인으로</a>
+    </nav>
+    <header class="header">
+      <span class="ball header-ball" aria-hidden="true">6</span>
+      <h1>로또 당첨 게임</h1>
+    </header>
+
+    <div class="layout">
+      <section class="panel game" aria-label="로또 게임">
+        <p class="intro">번호를 선택하고 당첨 결과를 확인해 보세요!</p>
+        <div class="modes" role="group" aria-label="번호 선택 방식">
+          <button id="auto" class="action" type="button" aria-pressed="false"><span aria-hidden="true">⚄</span> 자동 선택</button>
+          <button id="manual" class="action" type="button" aria-pressed="false" aria-controls="picker"><span aria-hidden="true">✎</span> 수동 선택</button>
+        </div>
+
+        <section id="picker" class="picker" aria-labelledby="picker-title" hidden>
+          <div class="picker-heading">
+            <h2 id="picker-title">번호 고르기</h2>
+            <span id="count" role="status"></span>
+          </div>
+          <div id="number-grid" class="number-grid"></div>
+        </section>
+
+        <section class="number-card selection" aria-labelledby="selected-title">
+          <h2 id="selected-title">선택한 번호</h2>
+          <div id="selected-balls" class="ball-row" role="group" aria-label="선택한 번호 목록"></div>
+        </section>
+
+        <button id="draw" class="action primary draw" type="button" disabled><span aria-hidden="true">✦</span> 추첨 시작</button>
+
+        <section class="number-card drawing" aria-labelledby="winning-title">
+          <div class="draw-heading">
+            <h2 id="winning-title">당첨 번호</h2>
+            <h2 id="bonus-title">보너스</h2>
+          </div>
+          <div class="ball-row">
+            <div id="winning-balls" class="ball-row" role="group" aria-labelledby="winning-title"></div>
+            <span class="plus" aria-hidden="true">+</span>
+            <div id="bonus-ball" class="ball-row" role="group" aria-labelledby="bonus-title"></div>
+          </div>
+        </section>
+
+        <section class="result" aria-labelledby="result-title">
+          <h2 id="result-title">당첨 결과</h2>
+          <div role="status" aria-atomic="true">
+            <p id="rank" class="rank"></p>
+            <p id="matches" class="matches"></p>
+          </div>
+        </section>
+      </section>
+
+      <aside class="panel guide" aria-labelledby="guide-title">
+        <h2 id="guide-title"><span aria-hidden="true">🏆</span> 당첨 등수 안내</h2>
+        <table aria-labelledby="guide-title">
+          <tbody>
+            <tr><th scope="row"><span>1등</span></th><td>당첨 번호 6개 일치</td></tr>
+            <tr><th scope="row"><span>2등</span></th><td>당첨 번호 5개 + 보너스 번호 일치</td></tr>
+            <tr><th scope="row"><span>3등</span></th><td>당첨 번호 5개 일치</td></tr>
+            <tr><th scope="row"><span>4등</span></th><td>당첨 번호 4개 일치</td></tr>
+            <tr><th scope="row"><span>5등</span></th><td>당첨 번호 3개 일치</td></tr>
+          </tbody>
+        </table>
+        <button id="reset" class="action primary reset" type="button"><span aria-hidden="true">↻</span> 다시 하기</button>
+      </aside>
+    </div>
+
+    <footer>실제 복권 구매 없이 즐기는 가상 로또 시뮬레이션입니다.</footer>
+  </main>
+</body>
+</html>

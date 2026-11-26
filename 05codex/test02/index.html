@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>미니 게임</title>
+  <link rel="stylesheet" href="./css/navigation.css">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <main class="hub">
+    <header class="hub-heading">
+      <h1>미니 게임</h1>
+      <p>원하는 게임을 선택하고 즐겨보세요!</p>
+    </header>
+
+    <div class="game-grid">
+      <section class="game-card" aria-labelledby="rps-title">
+        <div class="game-art hands" aria-hidden="true">
+          <img src="./images/scissors.png" alt="">
+          <img src="./images/rock.png" alt="">
+          <img src="./images/paper.png" alt="">
+        </div>
+        <h2 id="rps-title">가위바위보 게임</h2>
+        <p>컴퓨터와 가위바위보 대결을 즐겨보세요!</p>
+        <a class="game-link start-link" href="./rps.html" aria-label="가위바위보 게임 시작">게임 시작</a>
+      </section>
+
+      <section class="game-card" aria-labelledby="lotto-title">
+        <div class="game-art balls" aria-hidden="true">
+          <span>7</span><span>14</span><span>23</span><span>32</span><span>41</span>
+        </div>
+        <h2 id="lotto-title">로또 당첨 게임</h2>
+        <p>행운의 번호를 선택하고 당첨 결과를 확인해 보세요!</p>
+        <a class="game-link start-link" href="./lotto.html" aria-label="로또 당첨 게임 시작">게임 시작</a>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

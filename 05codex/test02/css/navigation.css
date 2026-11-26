@@ -1,0 +1,32 @@
+.home-nav {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 12px;
+}
+
+.game-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 7px 16px;
+  border: 2px solid #f0b16e;
+  border-bottom-width: 4px;
+  border-radius: 999px;
+  background: #fffaf0;
+  color: #813509;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.game-link:hover { background: #ffe7cc; }
+.game-link:focus-visible { outline: 3px solid #7c360f; outline-offset: 4px; }
+
+.home-icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  background: currentColor;
+  clip-path: polygon(0 45%, 50% 0, 100% 45%, 87% 45%, 87% 100%, 60% 100%, 60% 70%, 40% 70%, 40% 100%, 13% 100%, 13% 45%);
+}
